@@ -25,6 +25,8 @@
     "url": "https://github.com/bredele/store-mirror/issues"
   },
   "devDependencies": {
-    "mocha": "~1.18.2"
+    "mocha": "~1.18.2",
+    "socket.io": "~0.9.16",
+    "express": "~3.5.0"
   }
 }
