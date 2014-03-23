@@ -1,0 +1,10 @@
+{
+  "name": "store-mirror",
+  "repo": "bredele/store-mirror",
+  "description": "Web socket mirroring plugin for store",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT"
+}
