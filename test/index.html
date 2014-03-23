@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mirror</title>
+</head>
+<body>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="../build/build.js"></script>
+	<script>
+	  var Store = require('store'),
+	  		mirror = require('store-mirror');
+
+	  var store = new Store({
+	  	incr: 0
+	  });
+	  store.use(mirror('test'));
+
+	  setInterval(function() {
+	  	store.set('incr', store.get('incr') + 1);
+	  }, 1000);
+	</script>
+</body>
+</html>
