@@ -1,42 +1,38 @@
-// var origin;
 
-// if (!window.location.origin) {
-// 	var location = window.location;
-//   origin = location.protocol + "//" + location.hostname + (location.port ? ':' + location.port: '');
-// }
+/**
+ * Expose module.
+ */
 
+module.exports = function(name, io) {
 
-module.exports = function(name, origin) {
+  /**
+   * Expose 'mirror' plugin
+   * @param  {Store} store
+   * @api public
+   */
+  
+  return function(store) {
 
-	/**
-	 * Socket.io socket.
-	 * @api private
-	 */
-	
-	var socket = io.connect(( origin ? origin: location.origin ) + '/' + name);
+    io
+    .of('/' + name)
+    .on('connection', function(socket) {
 
-
-	/**
-	 * Expose 'mirror' plugin
-	 * @param  {Store} store
-	 * @api public
-	 */
-	
-	return function(store) {
-
-		//mirror changes from client to server
-		
-		store.on('updated', function(name, val) {
-			socket.emit('client change', name, val);
-		});
+      //mirror changes from server to client
+      
+      store.on('updated', function(name, val) {
+        socket.emit('server change', name, val);
+      });
 
 
-		//mirror changes from server to client
+      //mirror changes from client to server
 
-		socket.on('server change', function(name, val) {
-			store.set(name, val, true);
-		});
+      socket.on('client change', function(name, val) {
+        store[val ? 'set' : 'del'].apply(store, arguments);
+      });
+        
+    });
 
-	};
+  };
 
 };
+

@@ -4,7 +4,7 @@ var path = require('path');
 var server = require('http').Server(app);
 var io = require('socket.io').listen(server);
 var Store = require('store-component');
-var mirror = require('../lib/server');
+var mirror = require('..');
 
 app.use(express.static(path.resolve('.')));
 app.use('/build', express.static(path.resolve('..', 'build')));
