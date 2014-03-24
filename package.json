@@ -1,6 +1,6 @@
 {
   "name": "store-mirror",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Web socket mirroring plugin for store",
   "main": "/lib/server.js",
   "scripts": {
