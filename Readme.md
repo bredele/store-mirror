@@ -59,7 +59,7 @@ store.use(mirror('test', 'http://localhost'));
 
 #### nodejs
 
- In server slide, `origin` is mandatoru and is socket.io itself:
+ In server slide, `origin` is mandatory and is socket.io itself:
 
 ```js
 var mirror = require('store-mirror');
