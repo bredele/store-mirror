@@ -8,7 +8,6 @@
 
 module.exports = function(name, origin) {
 
-
 	/**
 	 * Socket.io socket.
 	 * @api private
@@ -27,9 +26,15 @@ module.exports = function(name, origin) {
 
 		//mirror changes from client to server
 		
-		store.on('change', function(name, val) {
-			console.log('socket emit');
-			socket.emit('change', name, val);
+		store.on('updated', function(name, val) {
+			socket.emit('client change', name, val);
+		});
+
+
+		//mirror changes from server to client
+
+		socket.on('server change', function(name, val) {
+			store.set(name, val, true);
 		});
 
 	};

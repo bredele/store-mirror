@@ -5,12 +5,68 @@
 
 ## Installation
 
-  Install with [component(1)](http://component.io):
+  Install with [component](http://component.io):
 
     $ component install bredele/store-mirror
 
+  Install with [nodejs](http://nodejs.org):
+
+    $ component install bredele/store-mirror
+
+  > browserify is currently not supported
+
+
+## Concept
+
+This plugin allows you to map a store in client and server side. If a change occurs in server side, the store in client side will immediately be updated and vice versa.
+
+`mirror` is also really simple (see [test](https://github.com/bredele/store-mirror/tree/master/test)) and its API is the same in both sides:
+
+### Client
+
+```js
+var mirror = require('store-mirror');
+
+store.use(mirror('test'));
+```
+
+ > `mirror` uses [socket.io](https://github.com/LearnBoost/socket.io) as a transport layer.
+
+### Server
+
+```js
+var mirror = require('store-mirror');
+var io = require('socket.io').listen(80);
+
+store.use(mirror('test', io));
+```
+
 ## API
 
+### mirror(channel, origin)
+
+ `mirror` opens a web socket `channel` and redirect every messages through this channel.
+
+#### browser
+
+ In client slide, `origin` is optional and should be your websocket server's address (window origin by default):
+
+```js
+store.use(mirror('test', 'http://localhost'));
+```
+
+  > don't forget to include the socket.io script in your document.
+
+#### nodejs
+
+ In server slide, `origin` is mandatoru and is socket.io itself:
+
+```js
+var mirror = require('store-mirror');
+var io = require('socket.io').listen(80);
+
+store.use(mirror('test', io));
+```
 
 
 ## License

@@ -12,13 +12,18 @@
 	  		mirror = require('store-mirror');
 
 	  var store = new Store({
-	  	incr: 0
+	  	incr:0,
+	  	hello:0
 	  });
 	  store.use(mirror('test'));
 
 	  setInterval(function() {
 	  	store.set('incr', store.get('incr') + 1);
 	  }, 1000);
+
+	  store.on('change hello', function(val) {
+	  	console.log('hello', val);
+	  });
 	</script>
 </body>
 </html>

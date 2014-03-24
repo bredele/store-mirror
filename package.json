@@ -2,7 +2,7 @@
   "name": "store-mirror",
   "version": "0.0.0",
   "description": "Web socket mirroring plugin for store",
-  "main": "index.js",
+  "main": "/lib/server.js",
   "scripts": {
     "test": "mocha"
   },
@@ -27,6 +27,7 @@
   "devDependencies": {
     "mocha": "~1.18.2",
     "socket.io": "~0.9.16",
-    "express": "~3.5.0"
+    "express": "~3.5.0",
+    "store-component": "~0.1.7"
   }
 }
