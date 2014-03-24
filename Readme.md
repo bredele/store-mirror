@@ -1,7 +1,7 @@
 
 # store-mirror
 
-  Web socket mirroring plugin for store
+  Web socket mirroring plugin for [store](http://github.com/bredele/store)
 
 ## Installation
 
@@ -18,7 +18,7 @@
 
 ## Concept
 
-This plugin allows you to map a store in client and server side. If a change occurs in server side, the store in client side will immediately be updated and vice versa.
+This plugin allows you to map a [store](http://github.com/bredele/store) in client and server side. If a change occurs in server side, the store in client side will immediately be updated and vice versa.
 
 `mirror` is also really simple (see [test](https://github.com/bredele/store-mirror/tree/master/test)) and its API is the same in both sides:
 
@@ -39,6 +39,14 @@ var mirror = require('store-mirror');
 var io = require('socket.io').listen(80);
 
 store.use(mirror('test', io));
+```
+
+### Have fun on both sides
+
+See [store](http://github.com/bredele/store) for more information.
+
+```js
+store.set('name', 'bredele');
 ```
 
 ## API
