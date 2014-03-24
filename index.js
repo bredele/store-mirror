@@ -19,15 +19,19 @@ module.exports = function(name, io) {
 
       //mirror changes from server to client
       
-      store.on('updated', function(name, val) {
-        socket.emit('server change', name, val);
+      store.on('updated', function(key, val) {
+        socket.emit('server change', key, val);
       });
 
 
       //mirror changes from client to server
 
-      socket.on('client change', function(name, val) {
-        store[val ? 'set' : 'del'].apply(store, arguments);
+      socket.on('client change', function(key, val) {
+        if(val) {
+          store.set(key, val, true);
+        } else {
+          store.del(key, true);
+        }
       });
         
     });

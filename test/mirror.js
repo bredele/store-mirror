@@ -21,6 +21,6 @@ store.on('change incr', function(val) {
 var i = 0;
 setInterval(function() {
 	store.set('hello', i++);
-}, 2000);
+}, 1000);
 
 server.listen(3000);
