@@ -3,7 +3,7 @@ var app = express();
 var path = require('path');
 var server = require('http').Server(app);
 var io = require('socket.io').listen(server);
-var Store = require('store-component');
+var Store = require('datastore');
 var mirror = require('..');
 
 app.use(express.static(path.resolve('.')));

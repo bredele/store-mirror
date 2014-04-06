@@ -2,11 +2,11 @@
   "name": "store-mirror",
   "repo": "bredele/store-mirror",
   "description": "Web socket mirroring plugin for store",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "keywords": [],
   "dependencies": {},
   "development": {
-    "bredele/store": "*"
+    "bredele/datastore": "*"
   },
   "license": "MIT",
   "main": "lib/index.js",
