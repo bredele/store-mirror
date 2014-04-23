@@ -1,7 +1,6 @@
-
 # store-mirror
 
-  Web socket mirroring plugin for [store](http://github.com/bredele/store)
+  Web socket mirroring plugin for **[datastore](http://github.com/bredele/datastore)**
 
 ## Installation
 
@@ -18,7 +17,7 @@
 
 ## Concept
 
-This plugin allows you to map a [store](http://github.com/bredele/store) in client and server side. If a change occurs in server side, the store in client side will immediately be updated and vice versa.
+This plugin allows you to map a **[datastore](http://github.com/bredele/store)** in client and server side. If a change occurs in server side, the store in client side will immediately be updated and vice versa.
 
 `mirror` is also really simple (see [test](https://github.com/bredele/store-mirror/tree/master/test)) and its API is the same in both sides:
 
